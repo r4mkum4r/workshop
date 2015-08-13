@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-js": "uglifyjs demos/src/js/main.js -o demos/public/js/app.min.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/r4mkum4r/workshop/issues"
   },
-  "homepage": "https://github.com/r4mkum4r/workshop#readme"
+  "homepage": "https://github.com/r4mkum4r/workshop#readme",
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "jshint": "^2.8.0",
+    "uglify-js": "^2.4.24",
+    "watchify": "^3.3.1"
+  }
 }
