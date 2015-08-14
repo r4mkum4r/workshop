@@ -4,6 +4,10 @@ fs = require 'fs'
 task 'say:hello', 'Description of task', ->
   console.log 'Hello World!'
 
+option '-e', '--environment [ENVIRONMENT_NAME]', 'set the environment for `task:withDefaults`'
+task 'task:withDefaults', 'Description of task', (options) ->
+  options.environment or= 'production'
+
 task 'lint',  'Linting JS files', ->
   exec "coffee -o demos/dest/js/ -c demos/src/js/*.coffee", (err, stdout, stderr) ->
     throw err if err
