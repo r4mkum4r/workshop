@@ -23,7 +23,6 @@ ngFileSort =  require 'gulp-angular-filesort'
 livereload = require 'gulp-livereload'
 nib       =   require 'nib'
 del       =   require 'del'
-mainBowerFiles  =   require 'main-bower-files'
 port      =   null
 tasks     =   null
 
