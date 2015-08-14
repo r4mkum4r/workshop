@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-js": "uglifyjs demos/src/js/main.js -o demos/public/js/app.min.js"
+    "lint": "jshint demos/dest/js/**.js",
+    "compress:js": "uglifyjs demos/dest/js/main.js -o demos/dest/js/app.min.js",
+    "build:coffee": "coffee -o demos/dest/js/ -c demos/src/js/*.coffee",
+    "prebuild:js": "npm run lint",
+    "build:js": "npm run build:coffee && npm run compress:js",
+    "build:js:parallel": "parallelshell \"npm run build:coffee\" \"npm run compress:js\" "
   },
   "repository": {
     "type": "git",
@@ -19,7 +24,11 @@
   "devDependencies": {
     "browserify": "^11.0.1",
     "jshint": "^2.8.0",
+    "parallelshell": "^2.0.0",
     "uglify-js": "^2.4.24",
     "watchify": "^3.3.1"
+  },
+  "dependencies": {
+    "concat": "^1.0.0"
   }
 }
